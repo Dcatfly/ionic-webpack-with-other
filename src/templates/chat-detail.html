@@ -1,0 +1,42 @@
+<!--
+  This template loads for the 'tab.friend-detail' state (app.js)
+  'friend' is a $scope variable created in the FriendsCtrl controller (controllers.js)
+  The FriendsCtrl pulls data from the Friends service (service.js)
+  The Friends service returns an array of friend data
+-->
+<ion-view view-title="{{chat.name}}">
+
+    <ion-header-bar align-title="center" class="bar-stable">
+        <a ng-click="backHistory()"
+           class="button icon-left button-clear icon ion-ios-arrow-back" style="line-height:36px">
+        </a>
+        <h1 class="title">{{chat.name}}</h1>
+
+    </ion-header-bar>
+    <ion-content class="padding">
+        <div class="row">
+            <div class="col-33">
+                filter过滤器用法
+            </div>
+            <div class="col-67">
+                {{'20150101'|dateFormat2}}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-33">指令</div>
+            <div class="col-67">
+                <input type="text" only-number="" placeholder="只能输入数字" ng-model="data.test.onlyNumber">
+            </div>
+        </div>
+
+        111112277
+
+        <img src="../img/ionic.png">
+        <img src="https://m.baidu.com/static/index/plus/plus_logo.png">
+        <img ng-src="{{chat.face}}" style="width: 64px; height: 64px">
+        <p>
+            {{chat.lastText}}
+        </p>
+    </ion-content>
+</ion-view>

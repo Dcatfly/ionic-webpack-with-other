@@ -1,0 +1,44 @@
+.gengxin_template {
+    color: rgb(118, 118, 118);
+}
+
+.gengxin .popup {
+    border-radius: 10px 10px 10px 10px;
+}
+
+.gengxin .popup-head {
+    border-bottom: 1px solid rgb(221, 221, 221) !important;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+}
+
+.gengxin h3 {
+    text-align: left;
+}
+
+.gengxin .popup-body {
+    border-bottom: 1px solid rgb(221, 221, 221);
+    min-height: 60px !important;
+}
+
+.gengxin .gx_cancel_button {
+    background-color: rgb(255, 255, 255);
+    border-right: 1px solid rgb(221, 221, 221);
+    color: rgb(221, 221, 221);
+    border-radius: 0 0 0 10px !important;
+    margin-right: 0 !important;
+}
+
+.gengxin .gx_ok_button {
+    color: #387ef5;
+    border-radius: 0px 0px 10px 10px !important;
+}
+
+.gengxin .gx_ok_button:hover {
+    color: #387ef5;
+}
+
+.gengxin .popup-buttons {
+    padding: 0px !important;
+    min-height: 0px;
+}
