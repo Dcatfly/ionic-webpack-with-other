@@ -45,12 +45,19 @@ module.exports = {
 				test: /[\/]ionic\.js$/,
 				loader: 'exports?ionic'
 			},
-			{test: /\.png$/, loader: "url-loader?limit=100000000"},
-			{test: /\.jpg$/, loader: "url-loader?limit=100000000"}]
+			{
+				test: /\.(png|jpe?g|gif)(\?.*)?$/,
+				loaders: [
+					'url?limit=10000&name=' + utils.assetsPath('img/[name].[hash:7].[ext]'),
+					'image-webpack?{optimizationLevel: 7, interlaced: false, pngquant:{quality: "65-90", speed: 4}, mozjpeg: {quality: 65}}'
+
+				]
+
+			}]
 	},
 	postcss: [
 		require('autoprefixer')({
-			browsers: ['last 5 version', 'ios', 'android']
+			browsers: ['last 2 version', 'last 3 iOS versions', 'last 3 Android versions']
 		})
 	],
 	resolve: {

@@ -1,3 +1,5 @@
+// var $ = require('../../lib/jquery-3.1.1.min')
+var $S = require('../../lib/script.min')
 angular.module('chatCtrl', [])
 	.controller('ChatsCtrl', ['$scope', 'Chats', '$state', function ($scope, Chats, $state) {
 		// With the new view caching in Ionic, Controllers are only called
@@ -7,6 +9,10 @@ angular.module('chatCtrl', [])
 		//
 		//$scope.$on('$ionicView.enter', function(e) {
 		//});
+		$S.get('https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js', function () {
+			console.log($('*').length)
+		})
+		// console.log($('*').length)
 		$scope.chats = Chats.all();
 		$scope.remove = function (chat) {
 			Chats.remove(chat);
