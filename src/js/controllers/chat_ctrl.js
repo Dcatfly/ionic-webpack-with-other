@@ -1,5 +1,7 @@
 // var $ = require('../../lib/jquery-3.1.1.min')
 var $S = require('../../lib/script.min')
+var DateSelector = require('../../lib/multi-picker/DateSelector/DateSelector')
+require('../../lib/multi-picker/DateSelector/DateSelector.css')
 angular.module('chatCtrl', [])
 	.controller('ChatsCtrl', ['$scope', 'Chats', '$state', function ($scope, Chats, $state) {
 		// With the new view caching in Ionic, Controllers are only called
@@ -11,6 +13,18 @@ angular.module('chatCtrl', [])
 		//});
 		$S.get('https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js', function () {
 			console.log($('*').length)
+		})
+		new DateSelector({
+			input: 'date-selector-input',
+			container: 'targetContainer',
+			type: 0,
+			param: [1, 1, 1],
+			beginTime: [1970, 01, 01],
+			endTime: ['nextYear', 01, 01],
+			recentTime: [],
+			success: function (suc) {
+				console.log(suc)
+			}
 		})
 		// console.log($('*').length)
 		$scope.chats = Chats.all();

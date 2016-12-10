@@ -42,3 +42,8 @@
     padding: 0px !important;
     min-height: 0px;
 }
+
+/*user style*/
+ion-content .scroll {
+    height: calc(100vh - 47px - 44px);
+}

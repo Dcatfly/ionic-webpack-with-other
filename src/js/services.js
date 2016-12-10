@@ -145,14 +145,19 @@ appService
 		};
 
 		//查询带参数
-		service.post0 = function (name, reg) {
+		service.post0 = function (name, reg, credential) {
 			var data = getBaseData();
 			$ionicLoading.show(data.opt_loading);
 			var obj = {
 				method: 'post',
 				url: data[name] + reg,
-				timeout: 60000
+				timeout: 60000,
+				withCredentials: !!credential
 			};
+			if (angular.isObject(reg)) {
+				obj['url'] = data[name]
+				obj['data'] = reg
+			}
 			return service._service(obj);
 		};
 		//查询
@@ -209,11 +214,6 @@ appService
 			var data = getBaseData();
 			$ionicLoading.show(data.opt_loading);
 
-			var t = {
-				'key': 'e97e9817d5fc16326603c96afc9a4910',
-				'tableid': '577c7567305a2a1467a54f25',
-				'data': JSON.stringify(reg)
-			};
 			var obj = {
 				method: 'post',
 				url: data[name],
@@ -240,7 +240,7 @@ appService
 				var ip = dataService.getData('ip');
 				var obj = {
 					method: 'post',
-					url: ip + "/DataMapMoblie?classname=Login&funcname=loginUser&userCode=" + username + "&userPwd=" + password,
+					url: ip + "?userCode=" + username + "&userPwd=" + password,
 					timeout: 4000
 				};
 				$http(obj).then(function (suc) {
