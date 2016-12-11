@@ -6,7 +6,8 @@
 - autoprefixer css
 - uglify js
 - lazy load
-- require online js
+- require online js  
+
 ##Getting Started
 Clone the repository
 ```
