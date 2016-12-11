@@ -20,31 +20,30 @@ module.exports = {
 		loaders: [{
 			test: /\.css$/,
 			loader: ExtractTextPlugin.extract("style-loader", 'css-loader!postcss-loader')
-		}
-			, {
-				test: /\.html$/,
-				loader: 'html'
-			}, {
-				test: /\.json$/,
-				loader: 'json'
-			}, {
-				test: /\.scss$/,
-				loader: 'style!css!sass?outputStyle=expanded'
-			}, {
-				test: /\.(woff2?|eot|ttf|otf|svg)(\?.*)?$/,
-				loader: 'file',
-				query: {
-					limit: 10000,
-					publicPath: '../',
-					name: utils.assetsPath('./css/font/[name].[hash:7].[ext]')
-				}
-			}, {
-				test: /[\/]angular\.js$/,
-				loader: 'exports?angular'
-			}, {
-				test: /[\/]ionic\.js$/,
-				loader: 'exports?ionic'
-			},
+		}, {
+			test: /\.html$/,
+			loader: 'html'
+		}, {
+			test: /\.json$/,
+			loader: 'json'
+		}, {
+			test: /\.scss$/,
+			loader: 'style!css!sass?outputStyle=expanded'
+		}, {
+			test: /\.(woff2?|eot|ttf|otf|svg)(\?.*)?$/,
+			loader: 'file',
+			query: {
+				limit: 10000,
+				publicPath: '../',
+				name: utils.assetsPath('./css/font/[name].[hash:7].[ext]')
+			}
+		}, {
+			test: /[\/]angular\.js$/,
+			loader: 'exports?angular'
+		}, {
+			test: /[\/]ionic\.js$/,
+			loader: 'exports?ionic'
+		},
 			{
 				test: /\.(png|jpe?g|gif)(\?.*)?$/,
 				loaders: [
