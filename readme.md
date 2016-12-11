@@ -1,7 +1,7 @@
 #ionic-webpack-with-other
 >Template [Ionic tabs](http://ionicframework.com/getting-started/) using [Webpack](https://webpack.github.io/) + [oclazyload](https://oclazyload.readme.io) + [DateSelector](https://github.com/AppianZ/multi-picker/tree/master/DateSelector) + other  
 
-##Featrue
+##Featrues
 - minify images & css
 - autoprefixer css
 - uglify js
