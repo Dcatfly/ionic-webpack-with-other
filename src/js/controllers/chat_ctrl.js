@@ -3,7 +3,7 @@ var $S = require('../../lib/script.min')
 var DateSelector = require('../../lib/multi-picker/DateSelector/DateSelector')
 require('../../lib/multi-picker/DateSelector/DateSelector.css')
 angular.module('chatCtrl', [])
-	.controller('ChatsCtrl', ['$scope', 'Chats', '$state', function ($scope, Chats, $state) {
+	.controller('ChatsCtrl', ['$scope', 'Chats', '$state', 'h5ToastService', function ($scope, Chats, $state, h5ToastService) {
 		// With the new view caching in Ionic, Controllers are only called
 		// when they are recreated or on app start, instead of every page change.
 		// To listen for when this page is active (for example, to refresh data),
@@ -20,7 +20,7 @@ angular.module('chatCtrl', [])
 			type: 0,
 			param: [1, 1, 1],
 			beginTime: [1970, 01, 01],
-			endTime: ['nextYear', 01, 01],
+			endTime: ['nextYear', 11, 01],
 			recentTime: [],
 			success: function (suc) {
 				console.log(suc)

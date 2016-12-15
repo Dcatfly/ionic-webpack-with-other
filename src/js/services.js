@@ -46,6 +46,109 @@ appService
 			}
 		}
 	})
+	//h5版的短提示
+	.factory('h5ToastService', ['$compile', '$document', '$rootScope', '$timeout', function ($compile, $document, $rootScope, $timeout) {
+		require('../css/h5Toast.css')
+		var server = {}
+
+		var _toastTemplate = '<div class="ionic_toast">' +
+			'<div class="toast_section" ng-class="ionicToast.toastClass" ng-style="ionicToast.toastStyle" ng-click="hideToast()" ng-if="ionicToast.toastShow">' +
+			'<span class="ionic_toast_close">' +
+			'<i class="ion-android-close toast_close_icon"></i>' +
+			'</span>' +
+			'<span ng-bind-html="ionicToast.toastMessage"></span>' +
+			'</div>' +
+			'</div>';
+
+		var _defaultConfig = {
+			position: 'middle',
+			showClose: false,
+			theme: 'dark',
+			timeOut: 1000
+		};
+
+		var $scope = $rootScope.$new();
+		var toastTimer = _defaultConfig.timeOut;
+
+		var defaultScope = {
+			toastClass: '',
+			toastMessage: '',
+			toastStyle: {
+				opacity: 0,
+			},
+			toastShow: false
+		};
+
+		var toastPosition = {
+			top: 'ionic_toast_top',
+			middle: 'ionic_toast_middle',
+			bottom: 'ionic_toast_bottom'
+		};
+
+		var toastTemplate = $compile(_toastTemplate)($scope);
+
+		$scope.ionicToast = defaultScope;
+
+		$document.find('body').append(toastTemplate);
+
+		var toggleDisplayOfToast = function (show, opacity, callback) {
+			if (show) {
+				$scope.ionicToast.toastShow = show
+				$timeout(function () {
+					$scope.ionicToast.toastStyle = {
+						opacity: opacity
+					};
+					callback();
+				})
+			} else {
+				$scope.ionicToast.toastStyle = {
+					opacity: opacity
+				};
+				callback();
+				$timeout(function () {
+					$scope.ionicToast.toastShow = show
+				}, 10)
+			}
+
+		};
+
+		$scope.hideToast = function () {
+			toggleDisplayOfToast(false, 0, function () {
+			});
+		};
+
+		server.show = function (message, position, isSticky, duration) {
+
+			if (!message) return;
+			position = position || _defaultConfig.position;
+			duration = duration || _defaultConfig.timeOut;
+
+			if (duration > 10000) duration = 10000;
+
+			angular.extend($scope.ionicToast, {
+				toastClass: toastPosition[position] + ' ' + (isSticky ? 'ionic_toast_sticky' : ''),
+				toastMessage: message
+			});
+
+			toggleDisplayOfToast(true, 1, function () {
+				if (isSticky)  return;
+
+				toastTimer = $timeout(function () {
+					$scope.hideToast();
+				}, duration);
+			});
+		};
+
+		server.hide = function () {
+			$scope.hideToast();
+		};
+
+		server.configure = function (inputObj) {
+			angular.extend(_defaultConfig, inputObj);
+		};
+
+		return server
+	}])
 	//查询、提交数据的接口
 	.factory('serPostSearch', ['$http', '$ionicLoading', '$location', 'dataService', '$q', 'toastService', function ($http, $ionicLoading, $location, dataService, $q, toastService) {
 
