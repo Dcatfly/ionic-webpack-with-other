@@ -3,3 +3,6 @@ require('../app.js').app.controller('AccountCtrl', ['$scope', function ($scope) 
 		enableFriends: true
 	};
 }]);
+if (module.hot) {
+  module.hot.accept();
+}

@@ -5,3 +5,6 @@ appCtrl.controller('DashCtrl', ['$scope', 'h5ToastService', function ($scope, h5
 		h5ToastService.show('提交成功')
 	}
 }])
+if (module.hot) {
+  module.hot.accept();
+}

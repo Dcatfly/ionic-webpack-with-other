@@ -7,3 +7,6 @@ appCtrl.controller('ChatDetailCtrl', ['$scope', '$stateParams', 'Chats', functio
 		}
 	}
 }])
+if (module.hot) {
+  module.hot.accept();
+}

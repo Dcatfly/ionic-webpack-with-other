@@ -103,3 +103,6 @@ appFilter
 			return ret;
 		}
 	})
+if (module.hot) {
+  module.hot.accept();
+}

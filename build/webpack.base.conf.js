@@ -19,7 +19,7 @@ module.exports = {
 	module: {
 		loaders: [{
 			test: /\.css$/,
-			loader: ExtractTextPlugin.extract("style-loader", 'css-loader!postcss-loader')
+      loader: process.env.NODE_ENV === 'production' ? ExtractTextPlugin.extract("style-loader", 'css-loader!postcss-loader') : "style-loader!css-loader!postcss-loader"
 		}, {
 			test: /\.html$/,
 			loader: 'html'

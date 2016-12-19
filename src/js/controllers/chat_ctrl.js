@@ -20,7 +20,7 @@ angular.module('chatCtrl', [])
 			type: 0,
 			param: [1, 1, 1],
 			beginTime: [1970, 01, 01],
-			endTime: ['nextYear', 11, 01],
+      endTime: ['nextYear', 10, 01],
 			recentTime: [],
 			success: function (suc) {
 				console.log(suc)
@@ -45,3 +45,7 @@ angular.module('chatCtrl', [])
 			}
 		}
 	}])
+
+if (module.hot) {
+  module.hot.accept();
+}

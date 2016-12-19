@@ -14,6 +14,7 @@ require('./filter')
 
 var app = angular.module('demo', ['ionic', 'w5c.validator', 'oc.lazyLoad', 'appService', 'appDirective', 'appFilter']);
 app.run(['$ionicPlatform', '$rootScope', '$ionicHistory', function ($ionicPlatform, $rootScope, $ionicHistory) {
+  var a = 1;
 	$ionicPlatform.ready(function () {
 		$rootScope.backHistory = function () {
 			$ionicHistory.goBack();
@@ -41,4 +42,8 @@ app.run(['$ionicPlatform', '$rootScope', '$ionicHistory', function ($ionicPlatfo
 	}]);
 module.exports = {
 	'app': app
+}
+
+if (module.hot) {
+  module.hot.accept();
 }
