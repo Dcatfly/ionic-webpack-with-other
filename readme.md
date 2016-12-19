@@ -5,6 +5,7 @@
 - minify images & css
 - autoprefixer css
 - uglify js
+- hot module replacement
 - lazy load
 - require online js  
 
